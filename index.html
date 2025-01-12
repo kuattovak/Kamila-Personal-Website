@@ -111,6 +111,72 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
+        .carousel {
+            margin: 50px auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .carousel-container {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            justify-content: center;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-item {
+            min-width: 80%;
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .carousel-item .carousel-subitem {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .carousel-item img {
+            width: 150px;
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .carousel-item .description {
+            font-size: 0.9rem;
+            color: #bbbbbb;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            margin: 0 4px;
+            background-color: #555;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .carousel-dot.active {
+            background-color: #ffffff;
+        }
+
         footer {
             text-align: center;
             padding: 20px 0;
@@ -126,6 +192,26 @@
 
         footer a:hover {
             text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header a {
+                margin: 10px 0;
+            }
+
+            .video-section video {
+                width: 100%;
+            }
+
+            .carousel-item {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -166,22 +252,72 @@
                     <p>Medical System that includes robot-therapist and mobile app</p>
                 </div>
             </div>
-            
         </div>
     </div>
 
+    <div class="carousel">
+        <h2>Photo Carousel</h2>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-item">
+                    <div class="carousel-subitem">
+                        <img src="imgs/iPhone.png" alt="Phone Case 1">
+                        <div class="description">Phone case showcasing AMS mobile app design</div>
+                    </div>
+                    <div class="carousel-subitem">
+                        <img src="imgs/design-ui.png" alt="Phone Case 2">
+                        <div class="description">Modern design for a social media app</div>
+                    </div>
+                    <div class="carousel-subitem">
+                        <img src="imgs/design-ui.png" alt="Phone Case 3">
+                        <div class="description">Innovative UI for a music streaming service</div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-subitem">
+                        <img src="imgs/random4.jpg" alt="Phone Case 4">
+                        <div class="description">E-commerce app layout for easy shopping</div>
+                    </div>
+                    <div class="carousel-subitem">
+                        <img src="imgs/random5.jpg" alt="Phone Case 5">
+                        <div class="description">Fitness tracker interface for mobile devices</div>
+                    </div>
+                    <div class="carousel-subitem">
+                        <img src="imgs/iPhone.png" alt="Phone Case 6">
+                        <div class="description">Turnkey mini-games for True Tech Champ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-dots">
+            <div class="carousel-dot active" data-index="0"></div>
+            <div class="carousel-dot" data-index="1"></div>
+        </div>
+    </div>
 
     <div class="video-section">
         <h2>Featured Video</h2>
-        <video controls width="340" height="400">
+        <video controls>
             <source src="video/portfolio.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-    </div>
     </div>
 
     <footer>
         &copy; 2025 <a href="#">KK</a>. All rights reserved.
     </footer>
+
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                track.style.transform = `translateX(-${index * 100}%)`;
+                dots.forEach(d => d.classList.remove('active'));
+                dot.classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
