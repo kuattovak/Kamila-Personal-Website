@@ -3,137 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kamila's Portfolio</title>
+    <title>My Works</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* General Styles */
         body {
-            font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #343a40;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(34, 34, 34, 1) 35%, rgba(54, 54, 54, 1) 100%);
+            color: #ffffff;
         }
 
-        /* Container Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #121212;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            margin: 0 15px;
+        }
+
+        header a.contact {
+            border: 2px solid #ffffff;
+            padding: 10px 20px;
+            border-radius: 25px;
+        }
+
         .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            background: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        h1 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
             text-align: center;
-            font-size: 2em;
-            margin: 20px 0;
-            color: #495057;
         }
 
-        h2 {
-            color: #495057;
-            margin-bottom: 15px;
+        .container h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
 
-        p, ul {
-            line-height: 1.6;
+        .container p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #bbbbbb;
         }
 
-        ul li {
-            margin: 10px 0;
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
         }
 
-        /* Video Styles */
-        video {
-            display: block;
-            margin: 20px auto;
-            max-width: 100%;
-            border: 2px solid #ced4da;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .gallery-item {
+            background: #1e1e1e;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
         }
 
-        /* Footer Styles */
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .gallery-item .info {
+            padding: 15px;
+        }
+
+        .gallery-item .info h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .gallery-item .info p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #bbbbbb;
+        }
+
+        .video-section {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .video-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .video-section video {
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
         footer {
             text-align: center;
-            padding: 15px;
-            background-color: #e9ecef;
-            color: #343a40;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            padding: 20px 0;
+            color: #bbbbbb;
+            font-size: 0.9rem;
         }
 
-        footer p {
-            margin: 0;
-            font-size: 0.9em;
-        }
-
-        /* Button Styling */
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #495057;
-            color: white;
+        footer a {
+            color: #ffffff;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background 0.3s ease;
+            font-weight: 600;
         }
 
-        .btn:hover {
-            background: #343a40;
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>KK</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About Me</a>
+            <a href="#">My Works</a>
+            <a href="#" class="contact">Contact</a>
+        </nav>
+    </header>
+
     <div class="container">
-        <h1>Kamila's Portfolio</h1>
+        <h1>Kamila Kuatova</h1>
+        <p>I am an aspired engineer. My stack is mobile development Flutter and Dart. Founded multiple Startups:</p>
 
-        <h2>About me</h2>
-        <p>I am Kamila, a passionate engineer and innovator with a mission to improve lives through technology. My projects stem from personal experiences and a drive to solve real-world problems, from making workplaces safer to enhancing healthcare accessibility. Here’s a closer look at some of the projects I’ve worked on:</p>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="imgs/kamila-ams.png" alt="ams">
+                <div class="info">
+                    <h3>AMS</h3>
+                    <p>Automated Monitoring Solutions</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="imgs/resq.jpg" alt="resq">
+                <div class="info">
+                    <h3>RESQ</h3>
+                    <p>Gas and PPE Monitoring system</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="imgs/emdeu.jpg" alt="emdeu">
+                <div class="info">
+                    <h3>QarapaiymEmdeu</h3>
+                    <p>Medical System that includes robot-therapist and mobile app</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
 
+
+    <div class="video-section">
         <h2>Featured Video</h2>
-        <video controls width="640" height="360">
+        <video controls width="340" height="400">
             <source src="video/portfolio.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-
-        <h2>AMS (Pre-Shift Examination System)</h2>
-        <p>AMS is my way of rewriting a story I never want anyone else to live. Seeing my dad come home every day, exhausted, his health breaking down was a nightmare. AMS is my promise that tomorrow will be safer, and tragedy prevented. It’s more than a project; it’s my way of saying, "You’ll make it home, Dad. Always."</p>
-        <ul>
-            <li><strong>Key Features:</strong> Hardware device with sensors measuring metrics like alcohol levels, pulse, and temperature; Mobile app for safety engineers with real-time data and notifications.</li>
-            <li><strong>Traction:</strong> Secured $5,000 funding for implementation in government offices and clinics; ongoing international negotiations for expansion.</li>
-        </ul>
-
-        <h2>QarapaiymEmdeu (Robot-Therapist)</h2>
-        <p>QarapaiymEmdeu is an AI-powered robot therapist that bridges the gap in healthcare access. It provides personalized health recommendations and online medical services, ensuring timely care for all.</p>
-        <ul>
-            <li><strong>Key Features:</strong> AI doctor chatbot for tailored advice; mobile app offering medical certificates, sick leave notes, and integrated medication orders.</li>
-            <li><strong>Traction:</strong> Installed in 18 clinics, screening over 2,000 patients; showcased to EAEU ministers at Digital Almaty.</li>
-        </ul>
-
-        <h2>RESQ (Gas Analyzer)</h2>
-        <p>RESQ is a comprehensive gas analyzer designed to enhance workplace safety by detecting harmful gases and identifying fire and oil leak sources using AI-driven technology.</p>
-        <ul>
-            <li><strong>Key Features:</strong> Hardware for gas detection; computer vision for monitoring protective equipment and identifying fire/oil leaks.</li>
-            <li><strong>Traction:</strong> Finalist in industry competitions; developed with support from top institutions.</li>
-        </ul>
-
-        <h2>3GIS (Fleet Management Platform)</h2>
-        <p>3GIS is a platform designed to optimize fleet management for safety, efficiency, and cost-effectiveness. From detecting driver drowsiness to preventing accidents, it’s built to make roads safer.</p>
-        <ul>
-            <li><strong>Key Features:</strong> Driver behavior monitoring; public transit integration for safety and efficiency.</li>
-            <li><strong>Traction:</strong> Winner of multiple startup competitions; implemented in oil and gas fleets and public transit systems.</li>
-        </ul>
-
+    </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 Kamila's Portfolio</p>
+        &copy; 2025 <a href="#">KK</a>. All rights reserved.
     </footer>
 </body>
 </html>
