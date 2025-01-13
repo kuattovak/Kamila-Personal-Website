@@ -48,11 +48,15 @@
         }
 
         .container p {
+            margin: 0 auto; /* Centers the block horizontally */
+            text-align: center; /* Centers the text within the block */
+            max-width: 800px; /* Limits the width of the text block */
             font-size: 1.2rem;
             font-weight: 300;
             color: #bbbbbb;
+            padding-bottom: 80px;
         }
-
+        
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -93,70 +97,61 @@
             color: #bbbbbb;
         }
 
-        .video-section {
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        .video-section h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .video-section video {
-            width: 80%;
-            max-width: 800px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
         .carousel {
             margin: 50px auto;
             text-align: center;
             position: relative;
+            max-width: 100%; /* Ограничение ширины */
+            overflow: hidden; /* Скрыть выходящий контент */
         }
 
         .carousel-container {
             display: flex;
-            overflow: hidden;
             position: relative;
             justify-content: center;
+            align-items: center;
+            max-width: 100%;
+            overflow: hidden; /* Скрыть выходящий контент */
         }
 
         .carousel-track {
             display: flex;
             transition: transform 0.3s ease;
+            width: 200%; /* Учет двух слайдов */
         }
-
         .carousel-item {
-            min-width: 80%;
-            padding: 20px;
             display: flex;
-            flex-direction: row;
-            justify-content: center;
-            gap: 40px;
-            align-items: center;
+            justify-content: center; /* Горизонтальное выравнивание всех элементов */
+            align-items: flex-start; /* Выравнивание сверху */
+            gap: 40px; /* Промежуток между элементами */
+            box-sizing: border-box;
         }
-
-        .carousel-item .carousel-subitem {
+        
+        .carousel-subitem {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
+            width: 250px; /* Фиксированная ширина для всех карточек */
+            min-height: 500px; /* Одинаковая высота для всех карточек */
         }
-
-        .carousel-item img {
-            width: 150px;
+        
+        .carousel-subitem img {
+            width: 100%; /* Все фото будут одинаковой ширины */
             height: auto;
-            object-fit: contain;
             margin-bottom: 10px;
         }
-
+        
         .carousel-item .description {
             font-size: 0.9rem;
+            max-width: 230px; /* Ограничение ширины текста */
             color: #bbbbbb;
+            text-align: center;
+            word-wrap: break-word;
+            flex-grow: 1; /* Растягивает текст, чтобы фото оставались на одном уровне */
         }
+        
+        
 
         .carousel-dots {
             display: flex;
@@ -172,10 +167,81 @@
             border-radius: 50%;
             cursor: pointer;
         }
-
+        .carousel {
+            margin: 50px auto;
+            text-align: center;
+            position: relative;
+            max-width: 1200px; /* Ограничение ширины карусели */
+            overflow: hidden; /* Скрыть лишний контент */
+        }
+        
+        .carousel-container {
+            display: flex;
+            overflow: hidden;
+            justify-content: center; /* Центрация слайдов */
+            align-items: center;
+            position: relative;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.3s ease;
+            width: calc(100% * 2); /* Учитывает количество слайдов */
+        }
+        
+        .carousel-item {
+            display: flex;
+            justify-content: center; /* Горизонтальное выравнивание элементов */
+            align-items: flex-start; /* Выравнивание сверху */
+            gap: 40px; /* Промежутки между фото */
+            flex: 1 0 100%; /* Слайды занимают всю ширину карусели */
+            box-sizing: border-box;
+        }
+        
+        .carousel-subitem {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 250px; /* Фиксированная ширина для всех элементов */
+            min-height: 500px; /* Одинаковая высота для всех элементов */
+        }
+        
+        .carousel-subitem img {
+            width: 100%; /* Ширина фото */
+            height: auto;
+            margin-bottom: 10px;
+        }
+        
+        .carousel-item .description {
+            font-size: 0.9rem;
+            max-width: 230px; /* Ограничение ширины текста */
+            color: #bbbbbb;
+            text-align: center;
+            word-wrap: break-word;
+            margin-top: auto;
+        }
+        
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background-color: #555;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
         .carousel-dot.active {
             background-color: #ffffff;
         }
+        
+    
 
         footer {
             text-align: center;
@@ -204,10 +270,6 @@
                 margin: 10px 0;
             }
 
-            .video-section video {
-                width: 100%;
-            }
-
             .carousel-item {
                 flex-direction: column;
                 gap: 10px;
@@ -228,63 +290,80 @@
 
     <div class="container">
         <h1>Kamila Kuatova</h1>
-        <p>I am an aspired engineer. My stack is mobile development Flutter and Dart. Founded multiple Startups:</p>
-
+        <p>I am an aspiring engineer and innovator. My stack is mobile development (Flutter and Dart). Founded multiple startups:</p>
+        <video controls width="460" height="500">
+            <source src="video/portfolio.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <!-- <div class="video-container container">
+        <h2>Featured Video</h2>
+        <video controls width="460" height="500">
+            <source src="video/portfolio.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div> -->
+    <div class="gallery-container container">
+        <h2>My Projects</h2>
         <div class="gallery">
             <div class="gallery-item">
-                <img src="imgs/kamila-ams.png" alt="ams">
+                <img src="imgs/kamila-ams.png" alt="AMS">
                 <div class="info">
                     <h3>AMS</h3>
-                    <p>Automated Monitoring Solutions</p>
+                    <p>Automated Monitoring Solutions-Pre Shift Examination System</p>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="imgs/resq.jpg" alt="resq">
+                <img src="imgs/resq.jpg" alt="RESQ">
                 <div class="info">
                     <h3>RESQ</h3>
-                    <p>Gas and PPE Monitoring system</p>
+                    <p>Gas and PPE Monitoring System</p>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="imgs/emdeu.jpg" alt="emdeu">
+                <img src="imgs/emdeu.jpg" alt="Emdeu">
                 <div class="info">
                     <h3>QarapaiymEmdeu</h3>
-                    <p>Medical System that includes robot-therapist and mobile app</p>
+                    <p>Robot-Therapist and Medical System</p>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="carousel">
-        <h2>Photo Carousel</h2>
+        <h2>Web and Mobile Applications That I Developed</h2>
         <div class="carousel-container">
             <div class="carousel-track">
+                <!-- Первый слайд -->
                 <div class="carousel-item">
                     <div class="carousel-subitem">
-                        <img src="imgs/iPhone.png" alt="Phone Case 1">
-                        <div class="description">Phone case showcasing AMS mobile app design</div>
+                        <img src="imgs/design-ui.png" alt="Design UI">
+                        <h3>TWE12LVE</h3>
+                        <div class="description">Car rental service app for finance optimization application</div>
                     </div>
                     <div class="carousel-subitem">
-                        <img src="imgs/design-ui.png" alt="Phone Case 2">
-                        <div class="description">Modern design for a social media app</div>
+                        <img src="imgs/iPhone.png" alt="iPhone">
+                        <h3>MTC</h3>
+                        <div class="description">Mini games for the largest mobile network operator in Russia.</div>
                     </div>
                     <div class="carousel-subitem">
-                        <img src="imgs/design-ui.png" alt="Phone Case 3">
-                        <div class="description">Innovative UI for a music streaming service</div>
+                        <img src="imgs/iPhone4.png" alt="Design UI">
+                        <h3>EnglishOpportunity</h3>
+                        <div class="description">The website for leading english learning school in Kazakhstan</div>
                     </div>
                 </div>
+    
+                <!-- Второй слайд -->
                 <div class="carousel-item">
                     <div class="carousel-subitem">
-                        <img src="imgs/random4.jpg" alt="Phone Case 4">
-                        <div class="description">E-commerce app layout for easy shopping</div>
+                        <img src="imgs/iPhone3.png" alt="Design UI">
+                        <h3>EcoArt</h3>
+                        <div class="description">The website for ECO ART design studio</div>
                     </div>
                     <div class="carousel-subitem">
-                        <img src="imgs/random5.jpg" alt="Phone Case 5">
+                        <img src="imgs/design-ui.png" alt="Design UI">
+                        <h3></h3>
                         <div class="description">Fitness tracker interface for mobile devices</div>
-                    </div>
-                    <div class="carousel-subitem">
-                        <img src="imgs/iPhone.png" alt="Phone Case 6">
-                        <div class="description">Turnkey mini-games for True Tech Champ</div>
                     </div>
                 </div>
             </div>
@@ -294,14 +373,7 @@
             <div class="carousel-dot" data-index="1"></div>
         </div>
     </div>
-
-    <div class="video-section">
-        <h2>Featured Video</h2>
-        <video controls>
-            <source src="video/portfolio.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
+    
 
     <footer>
         &copy; 2025 <a href="#">KK</a>. All rights reserved.
@@ -310,7 +382,7 @@
     <script>
         const track = document.querySelector('.carousel-track');
         const dots = document.querySelectorAll('.carousel-dot');
-
+        
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 track.style.transform = `translateX(-${index * 100}%)`;
@@ -318,6 +390,7 @@
                 dot.classList.add('active');
             });
         });
+        
     </script>
 </body>
 </html>
