@@ -4,230 +4,176 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Works</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Ensure Montserrat font is properly imported */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+    
         body {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
             background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(34, 34, 34, 1) 35%, rgba(54, 54, 54, 1) 100%);
             color: #ffffff;
         }
-
+    
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 50px;
             background-color: #121212;
+            flex-wrap: wrap; /* Ensures proper wrapping for small screens */
         }
-
+    
         header a {
             text-decoration: none;
             color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
-            margin: 0 15px;
+            margin: 10px 15px;
         }
-
+    
         header a.contact {
             border: 2px solid #ffffff;
             padding: 10px 20px;
             border-radius: 25px;
         }
-
+    
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 50px 20px;
             text-align: center;
         }
-
+    
         .container h1 {
             font-size: 3rem;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             margin-bottom: 10px;
         }
-
+    
         .container p {
-            margin: 0 auto; /* Centers the block horizontally */
-            text-align: center; /* Centers the text within the block */
-            max-width: 800px; /* Limits the width of the text block */
+            margin: 0 auto;
+            text-align: center;
+            max-width: 800px;
             font-size: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 300;
             color: #bbbbbb;
-            padding-bottom: 80px;
+            padding-bottom: 40px;
         }
-        
+    
+        .container video {
+            width: 100%;
+            max-width: 600px; /* Limits video size */
+            height: auto;
+            border-radius: 10px;
+            margin: 0 auto;
+            display: block;
+        }
+    
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-top: 40px;
         }
-
+    
         .gallery-item {
             background: #1e1e1e;
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s ease;
         }
-
+    
         .gallery-item:hover {
             transform: scale(1.05);
         }
-
+    
         .gallery-item img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: auto;
         }
-
+    
         .gallery-item .info {
             padding: 15px;
         }
-
+    
         .gallery-item .info h3 {
             font-size: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             margin-bottom: 5px;
         }
-
+    
         .gallery-item .info p {
             font-size: 0.9rem;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 300;
             color: #bbbbbb;
         }
-
+    
         .carousel {
             margin: 50px auto;
             text-align: center;
             position: relative;
-            max-width: 100%; /* Ограничение ширины */
-            overflow: hidden; /* Скрыть выходящий контент */
-        }
-
-        .carousel-container {
-            display: flex;
-            position: relative;
-            justify-content: center;
-            align-items: center;
             max-width: 100%;
-            overflow: hidden; /* Скрыть выходящий контент */
+            overflow: hidden;
         }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.3s ease;
-            width: 200%; /* Учет двух слайдов */
-        }
-        .carousel-item {
-            display: flex;
-            justify-content: center; /* Горизонтальное выравнивание всех элементов */
-            align-items: flex-start; /* Выравнивание сверху */
-            gap: 40px; /* Промежуток между элементами */
-            box-sizing: border-box;
-        }
-        
-        .carousel-subitem {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            width: 250px; /* Фиксированная ширина для всех карточек */
-            min-height: 500px; /* Одинаковая высота для всех карточек */
-        }
-        
-        .carousel-subitem img {
-            width: 100%; /* Все фото будут одинаковой ширины */
-            height: auto;
-            margin-bottom: 10px;
-        }
-        
-        .carousel-item .description {
-            font-size: 0.9rem;
-            max-width: 230px; /* Ограничение ширины текста */
-            color: #bbbbbb;
-            text-align: center;
-            word-wrap: break-word;
-            flex-grow: 1; /* Растягивает текст, чтобы фото оставались на одном уровне */
-        }
-        
-        
-
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-
-        .carousel-dot {
-            width: 10px;
-            height: 10px;
-            margin: 0 4px;
-            background-color: #555;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-        .carousel {
-            margin: 50px auto;
-            text-align: center;
-            position: relative;
-            max-width: 1200px; /* Ограничение ширины карусели */
-            overflow: hidden; /* Скрыть лишний контент */
-        }
-        
+    
         .carousel-container {
             display: flex;
-            overflow: hidden;
-            justify-content: center; /* Центрация слайдов */
+            justify-content: center;
             align-items: center;
             position: relative;
         }
-        
+    
         .carousel-track {
             display: flex;
             transition: transform 0.3s ease;
-            width: calc(100% * 2); /* Учитывает количество слайдов */
+            width: calc(100% * 2); /* Adjust for the number of slides */
         }
-        
+    
         .carousel-item {
             display: flex;
-            justify-content: center; /* Горизонтальное выравнивание элементов */
-            align-items: flex-start; /* Выравнивание сверху */
-            gap: 40px; /* Промежутки между фото */
-            flex: 1 0 100%; /* Слайды занимают всю ширину карусели */
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            flex: 1 0 100%;
             box-sizing: border-box;
         }
-        
+    
         .carousel-subitem {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            width: 250px; /* Фиксированная ширина для всех элементов */
-            min-height: 500px; /* Одинаковая высота для всех элементов */
+            width: 250px;
+            min-height: 450px;
         }
-        
+    
         .carousel-subitem img {
-            width: 100%; /* Ширина фото */
+            width: 100%;
             height: auto;
             margin-bottom: 10px;
         }
-        
+    
         .carousel-item .description {
             font-size: 0.9rem;
-            max-width: 230px; /* Ограничение ширины текста */
+            max-width: 230px;
+            font-family: 'Montserrat', sans-serif;
             color: #bbbbbb;
             text-align: center;
             word-wrap: break-word;
             margin-top: auto;
         }
-        
+    
         .carousel-dots {
             display: flex;
             justify-content: center;
             margin-top: 10px;
         }
-        
+    
         .carousel-dot {
             width: 10px;
             height: 10px;
@@ -236,46 +182,92 @@
             border-radius: 50%;
             cursor: pointer;
         }
-        
+    
         .carousel-dot.active {
             background-color: #ffffff;
         }
-        
     
-
         footer {
             text-align: center;
             padding: 20px 0;
             color: #bbbbbb;
+            font-family: 'Montserrat', sans-serif;
             font-size: 0.9rem;
         }
-
+    
         footer a {
             color: #ffffff;
             text-decoration: none;
             font-weight: 600;
         }
-
+    
         footer a:hover {
             text-decoration: underline;
         }
-
+    
+        /* Full Phone Adaptability (for devices <= 768px) */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
                 text-align: center;
+                padding: 10px 20px;
             }
-
+    
             header a {
                 margin: 10px 0;
             }
-
+    
+            .container h1 {
+                font-size: 2rem;
+            }
+    
+            .container p {
+                font-size: 1rem;
+                max-width: 90%;
+            }
+    
+            .container video {
+                width: 100%;
+                max-width: 90%; /* Adjust for phone screens */
+                height: auto;
+            }
+    
+            .gallery {
+                grid-template-columns: 1fr; /* One item per row */
+            }
+    
             .carousel-item {
-                flex-direction: column;
-                gap: 10px;
+                flex-direction: column; /* Stack items vertically */
+                gap: 20px;
+            }
+    
+            .carousel-subitem {
+                width: 90%; /* Adjust width for small screens */
+                min-height: auto; /* Remove fixed height */
+            }
+    
+            .carousel-subitem img {
+                width: 100%;
+                max-width: 200px; /* Prevent images from getting too large */
+            }
+    
+            .carousel-item .description {
+                font-size: 0.8rem;
+                max-width: 90%;
+            }
+    
+            .carousel-dots {
+                margin-top: 20px;
+            }
+    
+            footer {
+                font-size: 0.8rem;
             }
         }
     </style>
+    
+    
+    
 </head>
 <body>
     <header>
